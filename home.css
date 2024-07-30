@@ -1,0 +1,64 @@
+/* line */
+
+.progress-tracker {
+    display: flex;
+    align-items: center;
+  }
+  
+  .step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .completed {
+    background-color: #3f51b5; /* Blue color */
+  }
+  
+  .line {
+    height: 2px;
+    flex-grow: 1;
+    background-color: #bfbfbf;
+  }
+  
+  .completed-line {
+    background-color: #3f51b5; 
+  }
+  
+  /* input field */
+  .input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #3f51b5; /* Border color */
+    border-radius: 5px;
+    padding: 5px;
+    width: 450px; /* Adjust width as needed */
+  }
+  
+  .input-label {
+    margin-right: 10px; /* Space between label and input */
+    color: #000; 
+    font-weight: bold;
+    width: 190px;
+  }
+  
+  .input-field {
+    margin-right: auto;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+  }
+   
+  .buton button{
+    width: 100px;
+  }
+  #nextBtn{
+    width: 300px;
+  } 
+ 

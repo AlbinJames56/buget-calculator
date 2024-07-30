@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+    <link rel="shortcut icon" href="https://i.pngimg.me/thumb/f/720/m2i8G6d3K9N4N4A0.jpg" type="image/x-icon">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+
+    <!-- chart library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown text-center">Budget Calculator</h1>
+        <p>Whether you’re new to personal finance or have been building toward financial freedom for years, budgeting can be one of your most effective tools for reaching your goals. If you want to experiment with a budget, Quicken’s free budget calculator can help you get started. <br><br>
+
+            This budget maker will walk you through the key budgeting categories and help you keep track of your monthly expenses. It doesn’t matter if your goal is to pay off debt, buy your dream car, or finance a vacation home in the Maldives — our calculator can help.</p>
+            <!-- complete line -->
+            <div class="container p-5 border border-3 rounded-5 shadow-sm p-3 mb-5 bg-body">
+                <div class="progress-tracker mb-5">
+                    <div class="step">1</div>
+                    <div class="line"></div>
+                    <div class="step ">2</div>
+                    <div class="line"></div>
+                    <div class="step">3</div>
+                    <div class="line"></div>
+                    <div class="step">4</div>
+                    <div class="line"></div>
+                    <div class="step">5</div>
+                    <div class="line"></div>
+                    <div class="step">6</div>
+                  </div>
+                  
+            
+
+            <div class="row pt-5">
+                <div class="col-md-6">
+                    <!-- income index -->
+                    <table class="table mt-3">
+                        <thead>
+                          <tr>
+                            <th scope="col" style="width: 25px;">Income</th>
+                            <th scope="col">Source</th>
+                            <th scope="col">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody id="income-table-body">
+                          <!-- New income entries will be added here -->
+                        </tbody>
+                      </table>
+                      <h6 class="text-success">Total Income: <span id="totalIncome">0.00</span></h6>
+                    <table class="table mt-3">
+                        <thead>
+                          <tr>
+                            <th scope="col" style="width: 25px;">Expense</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody id="expense-table-body">
+                          <!-- New income entries will be added here -->
+                        </tbody>
+                      </table>
+                      <h6 class="text-danger">Total Expense: <span id="totalExpense">0.00</span></h6>
+                    <!-- piechart -->
+                    <div class="pieChart" id="pieChart">
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Input area -->
+                     
+                        <h2 id="monthly-head">Monthly Income</h2>
+                         
+                    <div class="input-container mt-3">
+                        <label for="salary-input" class="input-label  " id="monthly-source-label">Income Source</label>
+                        <input type="text" id="source-input" class="input-field form-control" >
+                    </div>
+                    <div class="input-container mt-3">
+                        <label for="amount-input" class="input-label  ">Amount</label>
+                        <input type="text" id="amount-input" class="input-field form-control" >
+                    </div>
+                    <div class="buton mt-3 d-flex justify-content-end mt-5 buton">
+                        <button class="btn btn-primary mr-5 rounded-pill" id="calculate-btn" onclick="addIncome()">Add</button>
+                    </div>
+                    <div class="chart-container" style="width: 100%;">
+                        <canvas id="incomeExpenseChart"></canvas>
+                      </div>
+                </div>
+            </div>
+           
+              
+            <!-- next button -->
+            <div class="d-flex justify-content-center mt-5 buton">
+                <button type="button" class=" btn btn-success rounded-pill" id="nextBtn" onclick="goNext()">
+                    Add Expenses
+                </button>
+            </div>
+        </div>
+    </div>
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"> 
+  </script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="./home.js">
+    
+  </script>
+</body>
+</html>
