@@ -121,10 +121,11 @@ function goNext(){
       }   
       else if(isThirdNextClick ) { 
         updateProgress(4);
+        createBarChart(totalAmount, totalExpense)
         document.getElementById('nextBtn').innerText('Home');
         document.getElementById('nextBtn').setAttribute('onclick', 'window.location.href="./home.html";')
        
-  createBarChart(totalAmount, totalExpense) // Corrected argument order: totalAmount for income, totalExpense for expenses
+    
       } 
 
     else{

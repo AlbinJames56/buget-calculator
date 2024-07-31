@@ -7,22 +7,23 @@
 }
 .bg .container{
   background: #ffffff;
-  padding: 50px;
+  padding: 10px;
   border-radius: 50px;
   box-shadow: 5px 5px 5px 10px rgb(50, 50, 50);
-  max-width: 1800px;
+ 
    
 }
 .bg p{
-  font-size: 25px;
+  font-size: 15px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-  padding: 15px;
+  padding: 20px;
 }
 .txt-head{
   font-family:cursive ;
   font-weight: 900;
-  font-size: 70px;
-  color: rgb(255, 1, 1);
+  font-size: 40px;
+  color: rgb(48, 45, 53);
+  text-shadow: 2px 2px 2px #887575;
 }
 /* line */
 
@@ -56,18 +57,17 @@
   .completed-line {
     background-color: #3f51b5; 
   }
-  th{
-    font-size: x-large;
-  }
+   
   /* input field */
   .input-container {
     display: flex;
     align-items: center;
     border: 1px solid #3f51b5; /* Border color */
     border-radius: 5px;
-    margin-left: 5rem;
-    padding: 1rem;
-    width: 40rem; /* Adjust width as needed */
+    padding-left: 5px;
+    margin-left: 4rem; 
+
+    width: 25rem; /* Adjust width as needed */
   }
  #monthly-head{
     margin-left: 5rem;
@@ -88,13 +88,11 @@
   }
    
   .buton button{
-    width: 15rem;
-    font-size: x-large;
+    width: 8rem; 
     margin-right:5rem;
   }
   #nextBtn{
-    width: 25rem;
-    font-size: x-large;
+    width:  10rem; 
   } 
  
 
