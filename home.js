@@ -1,6 +1,12 @@
 let isSecondNextClick = false;
+let isThirdNextClick= false;
 let incomeData = [];
 let expenseData = [];
+let totalAmount = 0;
+let totalExpense = 0; 
+const colors = [];
+let pieChartInstance = null;
+let barChartInstance = null;
 
 function updateProgress(currentStep) {
     const steps = document.querySelectorAll('.step');
@@ -25,8 +31,7 @@ function updateProgress(currentStep) {
    
 ; 
   
-let totalAmount = 0;
-const colors = [];
+
 
 function addIncome() {
   let incomeSource = document.getElementById('source-input').value;
@@ -35,6 +40,7 @@ function addIncome() {
  let totalIncomeElement = document.getElementById('totalIncome');
   
   if (incomeSource !== "" && amountStr !== "") {
+    updateProgress(1)
     const amount = parseFloat(amountStr);
     if (!isNaN(amount)) {
       totalAmount += amount;
@@ -62,26 +68,8 @@ function addIncome() {
   }
 }
 
-function goNext(){
-    if(isSecondNextClick){
-      document.getElementById('calculate-btn').setAttribute('onclick', ' ');
-        updateProgress(2)
-        createPieChart();
-    }
-    else{
-        updateProgress(1)
-        document.getElementById('nextBtn').innerText='Create pie Chart'
-        document.getElementById('monthly-head').innerHTML='<h2>Monthly Expense</h2>'
-        document.getElementById('monthly-source-label').innerHTML='Expenses'
-        // Change the button's onclick function
-    document.getElementById('calculate-btn').setAttribute('onclick', 'addExpense()');
-    isSecondNextClick = true;
-    }
-    
-    
-}
-let totalExpense = 0;
 function addExpense() {
+  updateProgress(2)
     let expenseSource = document.getElementById('source-input').value;
     let amountStr = document.getElementById('amount-input').value;
     let expenseTableBody = document.getElementById('expense-table-body'); 
@@ -117,6 +105,42 @@ function addExpense() {
     }
   }
 
+  
+
+function goNext(){
+    if(isSecondNextClick){
+      document.getElementById('calculate-btn').remove();
+        updateProgress(3)
+        document.getElementById('nextBtn').innerText='Create Bar Chart'
+        createPieChart();
+        
+        isThirdNextClick = true;
+        isSecondNextClick=false;
+
+        balance.innerHTML=totalAmount-totalExpense;
+      }   
+      else if(isThirdNextClick ) { 
+        updateProgress(4);
+        document.getElementById('nextBtn').innerText('Home');
+        document.getElementById('nextBtn').setAttribute('onclick', 'window.location.href="./home.html";')
+       
+  createBarChart(totalAmount, totalExpense) // Corrected argument order: totalAmount for income, totalExpense for expenses
+      } 
+
+    else{
+        
+        document.getElementById('nextBtn').innerText='Create pie Chart'
+        document.getElementById('monthly-head').innerHTML='<h2>Monthly Expense</h2>'
+        document.getElementById('monthly-source-label').innerHTML='Expenses'
+        // Change the button's onclick function
+    document.getElementById('calculate-btn').setAttribute('onclick', 'addExpense()');
+    balance.innerHTML=totalAmount-totalExpense;
+    isSecondNextClick = true;
+    }
+    
+    
+}
+
 //   color generations
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
@@ -126,38 +150,73 @@ function getRandomColor() {
     }
     return color;
   }
-
-
+ 
+   
 //   pie chart
 function createPieChart() {
-    const ctx = document.getElementById('incomeExpenseChart').getContext('2d');
-  
-    // Combine income and expense data
-    const combinedData = [...incomeData, ...expenseData];
-  
-    new Chart(ctx, {
+  const ctxPie = document.getElementById('incomeExpenseChart').getContext('2d');
+
+  // Destroy existing chart instance if it exists
+  if (pieChartInstance) {
+      pieChartInstance.destroy();
+  }
+
+  // Combine income and expense data
+  const combinedData = [...incomeData, ...expenseData];
+
+  pieChartInstance = new Chart(ctxPie, {
       type: 'pie',
       data: {
-        labels: combinedData.map(data => data.source),
-        datasets: [{
-          data: combinedData.map(data => data.amount),
-          backgroundColor: combinedData.map(data => data.color)
-        }]
+          labels: combinedData.map(data => data.source),
+          datasets: [{
+              data: combinedData.map(data => data.amount),
+              backgroundColor: combinedData.map(data => data.color)
+          }]
       },
       options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          tooltip: {
-            callbacks: {
-              label: function(tooltipItem) {
-                return tooltipItem.label + ': $' + tooltipItem.raw.toFixed(2);
+          responsive: true,
+          plugins: {
+              legend: {
+                  position: 'top',
+              },
+              tooltip: {
+                  callbacks: {
+                      label: function(tooltipItem) {
+                          return tooltipItem.label + ': $' + tooltipItem.raw.toFixed(2);
+                      }
+                  }
               }
-            }
           }
-        }
       }
-    });
+  });
+}
+
+function createBarChart(totalIncome, totalExpenses) {
+  const ctxBar = document.getElementById('barChart').getContext('2d');
+
+  // Destroy existing chart instance if it exists
+  if (barChartInstance) {
+      barChartInstance.destroy();
   }
+
+  barChartInstance = new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+          labels: ['Total Income', 'Total Expenses'],
+          datasets: [{
+              label: 'Amount',
+              data: [totalIncome, totalExpenses],
+              backgroundColor: ['#4CAF50', '#F44336'],
+              borderColor: ['#388E3C', '#D32F2F'],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+} 

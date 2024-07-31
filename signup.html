@@ -6,6 +6,7 @@
     <title>Budget Calculator-signup</title>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/registrations/registration-5/assets/css/registration-5.css">
+<script src="./signup.js"></script>
 </head>
 <body>
     <!-- Registration 5 - Bootstrap Brain Component -->
@@ -37,11 +38,11 @@
                 <div class="row gy-3 gy-md-4 overflow-hidden">
                   <div class="col-12">
                     <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" name="firstName" id="firstName" placeholder="First Name" required>
+                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" required>
                   </div>
                   <div class="col-12">
                     <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
+                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
                   </div>
                   <div class="col-12">
                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
@@ -55,13 +56,13 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" name="iAgree" id="iAgree" required>
                       <label class="form-check-label text-secondary" for="iAgree">
-                        I agree to the <a href="#!" class="link-primary text-decoration-none">terms and conditions</a>
+                        I agree to the <a href="#!" class="link-primary text-decoration-none"required>terms and conditions</a>
                       </label>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="d-grid">
-                      <button class="btn bsb-btn-xl btn-primary" type="submit">Sign up</button>
+                      <button class="btn bsb-btn-xl btn-primary" type="submit" onclick="signup()">Sign up</button>
                     </div>
                   </div>
                 </div>

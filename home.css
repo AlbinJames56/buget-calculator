@@ -1,3 +1,29 @@
+.bg{
+  background-image: url(https://www.shutterstock.com/image-photo/financial-blue-chart-stat-background-260nw-14204629.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+
+}
+.bg .container{
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 50px;
+  box-shadow: 5px 5px 5px 10px rgb(50, 50, 50);
+  max-width: 1800px;
+   
+}
+.bg p{
+  font-size: 25px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  padding: 15px;
+}
+.txt-head{
+  font-family:cursive ;
+  font-weight: 900;
+  font-size: 70px;
+  color: rgb(255, 1, 1);
+}
 /* line */
 
 .progress-tracker {
@@ -30,15 +56,21 @@
   .completed-line {
     background-color: #3f51b5; 
   }
-  
+  th{
+    font-size: x-large;
+  }
   /* input field */
   .input-container {
     display: flex;
     align-items: center;
     border: 1px solid #3f51b5; /* Border color */
     border-radius: 5px;
-    padding: 5px;
-    width: 450px; /* Adjust width as needed */
+    margin-left: 5rem;
+    padding: 1rem;
+    width: 40rem; /* Adjust width as needed */
+  }
+ #monthly-head{
+    margin-left: 5rem;
   }
   
   .input-label {
@@ -56,9 +88,18 @@
   }
    
   .buton button{
-    width: 100px;
+    width: 15rem;
+    font-size: x-large;
+    margin-right:5rem;
   }
   #nextBtn{
-    width: 300px;
+    width: 25rem;
+    font-size: x-large;
   } 
  
+
+  .bar-chart-container{
+    display: flex;
+    justify-content: center;
+
+  }
