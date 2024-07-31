@@ -4,6 +4,9 @@
 }
 body {
     background: #dde3e8;
+    background-image: url(./pictures/login-bg.jpg) ;
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 .wrapper, 
 .container {

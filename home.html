@@ -16,15 +16,15 @@
 <body>
   <div class="bg">
    
-    <div class="container ">
+    <div class="body container ">
       <div class="d-flex justify-content-end mt-3 mr-4"><a href="./login.html" > <h5>logout</h5></a></div>
       
-        <h1 class="animate__animated animate__fadeInDown text-center pb-4 txt-head">Budget Calculator</h1>
+        <h1 class="animate__animated animate__fadeInDown text-center pb-4 txt-head"> <span style="color: rgb(255, 0, 119);">B</span>udget  <span style="color: rgb(255, 0, 119);">C</span>alculator</h1>
         <p>Whether you’re new to personal finance or have been building toward financial freedom for years, budgeting can be one of your most effective tools for reaching your goals. If you want to experiment with a budget, Quicken’s free budget calculator can help you get started. <br><br>
 
             This budget maker will walk you through the key budgeting categories and help you keep track of your monthly expenses. It doesn’t matter if your goal is to pay off debt, buy your dream car, or finance a vacation home in the Maldives — our calculator can help.</p>
             <!-- complete line -->
-            <div class="container p-5 border border-3 rounded-5 shadow-sm p-3 mb-5 bg-body">
+            <div class="input-area container p-5 border border-3 rounded-5 shadow-sm p-3 mb-5 bg-body">
                 <div class="progress-tracker mb-5">
                     <div class="step">1</div>
                     <div class="line"></div>
@@ -41,7 +41,7 @@
             <div class="row pt-5">
                 <div class="col-xl-6">
                     <!-- income index -->
-                    <table class="table mt-3">
+                    <table class="table mt-3 ">
                         <thead>
                           <tr>
                             <th scope="col" style="width: 25px;">Income</th>
@@ -53,7 +53,7 @@
                           <!-- New income entries will be added here -->
                         </tbody>
                       </table>
-                      <h6 class="text-success">Total Income: <span id="totalIncome">0.00</span></h6>
+                      <h6 class="text-success total">Total Income: <span id="totalIncome">0.00</span></h6>
                     <table class="table mt-3">
                         <thead>
                           <tr>
@@ -66,7 +66,7 @@
                           <!-- New income entries will be added here -->
                         </tbody>
                       </table>
-                      <h6 class="text-danger">Total Expense: <span id="totalExpense">0.00</span></h6>
+                      <h6 class="text-danger total">Total Expense: <span id="totalExpense">0.00</span></h6>
                     <!-- piechart -->
                     <div class="pieChart" id="pieChart">
 
@@ -96,7 +96,7 @@
              </div>  
                <div class="row">
                   <div class="col-md-6">
-                    <h3 class="text-info p-5 ps-0 ml=5">Balance: <span id="balance">0.00</span></h3>
+                    <h3 class="text-info  ps-0 ml-5 total">Balance: <span id="balance">0.00</span></h3>
                   </div> 
                     <div class=" bar-chart-container p-5" style="width: 50%;">
                         <canvas id="barChart"></canvas>
