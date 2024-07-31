@@ -107,40 +107,40 @@ function addExpense() {
 
   
 
-function goNext(){
-    if(isSecondNextClick){
-      document.getElementById('calculate-btn').remove();
-        updateProgress(3)
-        document.getElementById('nextBtn').innerText='Create Bar Chart'
-        createPieChart();
-        
-        isThirdNextClick = true;
-        isSecondNextClick=false;
+  function goNext() {
+    if (isSecondNextClick) {
+        if (totalExpense > 0) {
+            document.getElementById('calculate-btn').remove();
+            updateProgress(3);
+            document.getElementById('nextBtn').innerText = 'Create Bar Chart';
+            createPieChart();
 
-        balance.innerHTML=totalAmount-totalExpense;
-      }   
-      else if(isThirdNextClick ) { 
+            isThirdNextClick = true;
+            isSecondNextClick = false;
+
+            balance.innerHTML = totalAmount - totalExpense;
+        } else {
+            alert('Please add some expenses first');
+        }
+    } else if (isThirdNextClick) {
         updateProgress(4);
-        createBarChart(totalAmount, totalExpense)
+        createBarChart(totalAmount, totalExpense);
         document.getElementById('nextBtn').innerText = 'Home';
-        document.getElementById('nextBtn').setAttribute('onclick', 'window.location.href="./home.html"')
-       
-    
-      } 
-
-    else{
-        
-        document.getElementById('nextBtn').innerText='Create pie Chart'
-        document.getElementById('monthly-head').innerHTML='<h2>Monthly Expense</h2>'
-        document.getElementById('monthly-source-label').innerHTML='Expenses'
-        // Change the button's onclick function
-    document.getElementById('calculate-btn').setAttribute('onclick', 'addExpense()');
-    balance.innerHTML=totalAmount-totalExpense;
-    isSecondNextClick = true;
+        document.getElementById('nextBtn').setAttribute('onclick', 'window.location.href="./home.html"');
+    } else {
+        if (totalAmount > 0) {
+            document.getElementById('nextBtn').innerText = 'Create Pie Chart';
+            document.getElementById('monthly-head').innerHTML = '<h2>Monthly Expense</h2>';
+            document.getElementById('monthly-source-label').innerHTML = 'Expenses';
+            document.getElementById('calculate-btn').setAttribute('onclick', 'addExpense()');
+            balance.innerHTML = totalAmount - totalExpense;
+            isSecondNextClick = true;
+        } else {
+            alert('Please add some expenses first');
+        }
     }
-    
-    
 }
+
 
 //   color generations
 function getRandomColor() {
