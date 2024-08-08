@@ -12,13 +12,7 @@
   box-shadow: 4px 4px 4px 10px rgba(255, 255, 255, 0.167);
  
    
-}
-.body h5{
-  background: #585555;
-  padding: 10px;
- border-radius: 20px;
-    color: #eaecf3;
-  }
+} 
 .bg p{
   font-size: 15px;
   color: #090000; 
@@ -122,11 +116,11 @@
   }
   table{
     
-    background: #c5c4c4;
+    background: #f8f8f8;
     color: rgb(0, 0, 0);
   }
   .total{
-    background: #dfdede;
+    background: #fbfbfb;
     padding: 10px;
     border-radius: 5px;
   }
@@ -135,4 +129,6 @@
     border-radius: 50px;
       
   }
-  
+  .del-btn{
+    height: 40px;
+  }

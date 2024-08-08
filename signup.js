@@ -22,7 +22,6 @@ function signup(){
             };
             existingUsers.push(user);
             localStorage.setItem("USERS", JSON.stringify(existingUsers));
-
             alert("SignUp Successfully....!")
             window.location.href='login.html'
     }
