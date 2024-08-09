@@ -3,7 +3,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 body {
-    background: #f3b5ff;
+    background:  hsl(320, 100%, 92%);
     /* background-image: url(./pictures/signup=bg.jpg) ; */
     background-repeat:no-repeat;
     background-size:cover;

@@ -1,5 +1,7 @@
 
-
+body{
+  background: hsl(320, 100%, 92%);
+}
   /* index page */
 h1{
     color: #0a1b7c;
